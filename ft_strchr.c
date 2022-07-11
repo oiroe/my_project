@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 23:42:48 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/07/11 01:23:18 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/07/11 16:46:19 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i] != '\0' && s[i] != c)
 		i++;
 	if (s[i] == c)
-		return ((char *)s[i]);
+		return ((char *)&s[i]);
 	return (NULL);
 }
