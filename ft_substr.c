@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 15:01:07 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/07/30 15:32:02 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/08/08 20:06:59 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		ptr[i] == s[start - 1];
+		ptr[i] = s[start];
 		i++;
 		start++;
 	}
