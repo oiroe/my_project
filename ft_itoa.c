@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/04 19:56:25 by pboonpro          #+#    #+#             */
+/*   Updated: 2022/09/04 19:57:51 by pboonpro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	countlen(int n)
@@ -16,8 +28,8 @@ int	countlen(int n)
 char	*ft_itoa(int n)
 {
 	char	*ptr;
-	int	i;
-	int	last;
+	int		i;
+	int		last;
 
 	i = countlen(n);
 	last = countlen(n);
