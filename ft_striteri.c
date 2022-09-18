@@ -1,48 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 19:56:25 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/04 21:12:17 by pboonpro         ###   ########.fr       */
+/*   Created: 2022/09/04 21:45:44 by pboonpro          #+#    #+#             */
+/*   Updated: 2022/09/04 21:55:21 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	countlen(int n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int	i;
 
 	i = 0;
-	while (n > 0)
+	while (s[i] != '\0')
 	{
-		n /= 10;
+		f(i, &s[i]);
 		i++;
 	}
-	return (i);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*ptr;
-	int		i;
-	int		last;
-
-	i = countlen(n);
-	last = i;
-	ptr = malloc(sizeof(char) * (i + 1));
-	if (ptr == 0)
-		return (0);
-	i -= 1;
-	while (i >= 0)
-	{
-		ptr[i] = (n % 10) + 48;
-		n /= 10;
-		i--;
-	}
-	ptr[last] = '\0';
-	return (ptr);
 }

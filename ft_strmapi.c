@@ -1,48 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 19:56:25 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/04 21:12:17 by pboonpro         ###   ########.fr       */
+/*   Created: 2022/09/04 21:35:32 by pboonpro          #+#    #+#             */
+/*   Updated: 2022/09/04 21:44:34 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	countlen(int n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
-
-	i = 0;
-	while (n > 0)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*ptr;
 	int		i;
-	int		last;
+	int		len;
+	char	*ptr;
 
-	i = countlen(n);
-	last = i;
-	ptr = malloc(sizeof(char) * (i + 1));
+	if (s == '\0')
+		return (0);
+	len = ft_strlen(s);
+	ptr = malloc(sizeof(char) * (len + 1));
 	if (ptr == 0)
 		return (0);
-	i -= 1;
-	while (i >= 0)
+	i = 0;
+	while (s[i])
 	{
-		ptr[i] = (n % 10) + 48;
-		n /= 10;
-		i--;
+		ptr[i] == f(i, s[i]);
+		i++;
 	}
-	ptr[last] = '\0';
+	ptr[i] = '\0';
 	return (ptr);
 }
