@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:16:38 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/08/15 18:44:49 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/19 00:36:46 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	if (n < 0)
 	{
-		ft_putchar_fd("-", fd);
+		ft_putchar_fd('-', fd);
 		n *= (-1);
 	}
 	if (n > 9)

@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:38:23 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/07/14 13:21:42 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/19 00:38:11 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int	ft_strncmp(const char *dest, const char *src, size_t n)
 	{
 		i++;
 	}
-	return ((unsigned char *)src[i] - (unsigned char *)dest[i]);
+	return (src[i] - dest[i]);
 }

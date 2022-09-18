@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:47:58 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/06/28 02:03:40 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/19 00:31:57 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
 	int	sum;
 	int	sign;
 
-	i = 1;
 	sum = 0;
 	sign = 1;
 	while (*str == ' ' || *str == '\n' || *str == '\t'
