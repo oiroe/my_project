@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:47:58 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/19 00:31:57 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/20 14:03:07 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,22 @@ int	ft_atoi(const char *str)
 
 	sum = 0;
 	sign = 1;
-	while (*str == ' ' || *str == '\n' || *str == '\t'
-		|| *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-' || *str == '+')
+	if (str)
 	{
-		if (*str == '-')
-			sign *= (-1);
-		str++;
-	}
-	while (*str && *str >= '0' && *str <= '9')
-	{
-		sum = (sum * 10) + *str - '0';
-		str++;
+		while (*str == 32 || (*str >= 9 && *str <= 13))
+			str++;
+		if (*str == '+')
+			str++;
+		else if (*str == '-')
+		{
+			sign = -sign;
+			str++;
+		}
+		while (*str >= '0' && *str <= '9')
+		{
+			sum = (sum * 10) + *str - '0';
+			str++;
+		}
 	}
 	return (sign * sum);
 }

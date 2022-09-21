@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 01:17:44 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/19 00:27:39 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:23:37 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	size_t	i;
+	char	*ptr;
 
-	i = ft_strlen(s);
-	while (i >= 0 && s[i] != c)
-		i--;
+	i = 0;
+	ptr = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			ptr = (char *)&s[i];
+		i++;
+	}
 	if (s[i] == c)
-		return ((char *)&s[i]);
-	return (NULL);
+		ptr = (char *)&s[i];
+	return (ptr);
 }

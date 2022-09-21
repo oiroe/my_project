@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 19:56:25 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/04 21:12:17 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/20 14:24:47 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 
 int	countlen(int n)
 {
-	int	i;
+	int				i;
+	unsigned int	nb;
 
 	i = 0;
-	while (n > 0)
+	if (n < 0)
 	{
-		n /= 10;
+		nb = n * (-1);
+		i++;
+	}
+	else if (n == 0)
+		return (1);
+	else
+		nb = n;
+	while (nb > 0)
+	{
+		nb /= 10;
 		i++;
 	}
 	return (i);
@@ -27,22 +37,29 @@ int	countlen(int n)
 
 char	*ft_itoa(int n)
 {
-	char	*ptr;
-	int		i;
-	int		last;
+	char			*ptr;
+	int				i;
+	int				last;
+	unsigned int	nb;
 
 	i = countlen(n);
 	last = i;
 	ptr = malloc(sizeof(char) * (i + 1));
 	if (ptr == 0)
 		return (0);
+	if (n < 0)
+		nb = n * (-1);
+	else
+		nb = n;
 	i -= 1;
 	while (i >= 0)
 	{
-		ptr[i] = (n % 10) + 48;
-		n /= 10;
+		ptr[i] = (nb % 10) + 48;
+		nb /= 10;
 		i--;
 	}
+	if (n < 0)
+		ptr[0] = '-';
 	ptr[last] = '\0';
 	return (ptr);
 }

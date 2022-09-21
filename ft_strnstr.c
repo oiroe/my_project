@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 00:49:39 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/07/14 13:23:58 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/21 23:55:26 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 char	*ft_strnstr(const char *str, const char *tofind, size_t len)
 {
-	char	*pstr;
-	char	*ptofind;
 	size_t	i;
 	size_t	j;
 
-	pstr = (char *)str;
-	ptofind = (char *)tofind;
+	if (*tofind == '\0')
+		return ((char *)str);
 	i = 0;
-	while (pstr[i] && i < len)
+	while (str[i] && i < len)
 	{
 		j = 0;
-		while (pstr[i + j] == ptofind[j])
+		while (tofind[j] == str[i + j] && i + j < len)
 		{
-			if (pstr[i + j] != ptofind[j])
-				break ;
 			j++;
+			if (tofind[j] == '\0')
+				return ((char *)&str[i]);
 		}
-		if (j > 1)
-			return (&pstr[i]);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

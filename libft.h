@@ -6,14 +6,13 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 23:45:29 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/19 00:43:43 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:22:15 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	LIBFT_H
+#ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -49,5 +48,7 @@ char		*ft_strrchr(const char *s, int c);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		**ft_split(char const *s, char c);
+int			ft_toupper(int c);
+int			ft_tolower(int c);
 
 #endif
