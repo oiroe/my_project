@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:29:20 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/24 21:06:56 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/26 00:47:31 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,18 @@ char	**ft_split(char const *s, char c)
 	if (!ptr)
 		return (0);
 	i = 0;
+	j = 0;
 	while (s[i])
 	{
-		if (s[i + 1] == c || s[i + 1] == '\0')
+		if (s[i - 1] >= 'a'&& s[i - 1] <= 'z' && s[i - 1] == 'A'
+			&& s[i - 1] == 'Z' && (s[i] == c || s[i + 1] == '\0'))
 		{
-			ptr[i] = ft_substr(s, 0, i);
+			ptr[j] = ft_substr(s, 0, i);
 			s += i;
-			break ;
+			j++;
 		}
 		i++;
 	}
-	ptr[i] = '\0';
+	ptr[j] = '\0';
 	return (ptr);
 }

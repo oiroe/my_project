@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 21:45:44 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/04 21:55:21 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/26 00:51:28 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (s[i] != '\0')
 	{
-		f(i, &s[i]);
+		f (i, &s[i]);
 		i++;
 	}
 }
