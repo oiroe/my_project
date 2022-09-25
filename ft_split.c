@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	countstr(char *s, char c)
+int	countstr(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,26 +31,23 @@ char	**ft_split(char const *s, char c)
 {
 	int	i;
 	int	j;
+	int	word;
 	char	**ptr;
 
 	if (!s || c == '\0')
 		return (0);
-	ptr = (char **)malloc(sizeof(char) * countstr(s) + 1);
+	word = countstr(s, c);
+	ptr = (char **)malloc(sizeof(char) * word + 1);
 	if (!ptr)
 		return (0);
 	i = 0;
-	while (ptr[i])
+	while (s[i])
 	{
-		j = 0;
-		while (s[j])
+		if (s[i + 1] == c || s[i + 1] == '\0')
 		{
-			if (s[j + 1] == c || s[j + 1] == '\0')
-			{
-				ptr[i] = ft_substr[s,0,j];
-				s + j;
-				break ;
-			}
-			j++;
+			ptr[i] = ft_substr(s, 0, i);
+			s += i;
+			break ;
 		}
 		i++;
 	}
