@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:29:20 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/26 00:47:31 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/26 16:19:57 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	countstr(char const *s, char c)
 	int	count;
 
 	i = 0;
+	count = 0;
 	while (s[i])
 	{
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
@@ -27,32 +28,42 @@ int	countstr(char const *s, char c)
 	return (count);
 }
 
+int	wordlen(const char *s, char c, int index)
+{
+	int	size;
+
+	size = 0;
+	while (s[index] && s[index] != c)
+	{
+		index++;
+		size++;
+	}
+	return (size);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	int	i;
-	int	j;
-	int	word;
+	int		i;
+	int		j;
+	int		wlen;
+	int		word;
 	char	**ptr;
 
-	if (!s || c == '\0')
-		return (0);
 	word = countstr(s, c);
-	ptr = (char **)malloc(sizeof(char) * word + 1);
-	if (!ptr)
+	ptr = malloc(sizeof(char *) * (word + 1));
+	if (!s || !ptr)
 		return (0);
 	i = 0;
 	j = 0;
-	while (s[i])
+	while (i < word)
 	{
-		if (s[i - 1] >= 'a'&& s[i - 1] <= 'z' && s[i - 1] == 'A'
-			&& s[i - 1] == 'Z' && (s[i] == c || s[i + 1] == '\0'))
-		{
-			ptr[j] = ft_substr(s, 0, i);
-			s += i;
+		while (s[j] == c)
 			j++;
-		}
+		wlen = wordlen(s, c, j);
+		ptr[i] = ft_substr(s, j, wlen);
+		j += wlen;
 		i++;
 	}
-	ptr[j] = '\0';
+	ptr[word] = '\0';
 	return (ptr);
 }
