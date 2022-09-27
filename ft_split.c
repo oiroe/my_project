@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:29:20 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/26 16:19:57 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/26 16:29:56 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ char	**ft_split(char const *s, char c)
 		j += wlen;
 		i++;
 	}
-	ptr[word] = '\0';
+	ptr[word] = NULL;
 	return (ptr);
 }
