@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 20:31:13 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/19 00:39:46 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/10/01 04:16:39 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	*ptr;
+	void	*ptr;
 
 	ptr = malloc(count * size);
-	if (ptr == 0)
+	if (!ptr)
 		return (0);
-	ft_bzero(ptr, count * count);
+	ft_memset(ptr, 0, count * size);
 	return (ptr);
 }

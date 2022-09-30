@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 20:29:20 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/26 16:29:56 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/09/29 00:04:54 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,29 +41,40 @@ int	wordlen(const char *s, char c, int index)
 	return (size);
 }
 
+void	free_err(char **ptr, int i)
+{
+	while (i > 0)
+	{
+		free(ptr[i]);
+		i--;
+	}
+	free(ptr);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
-	int		wlen;
-	int		word;
 	char	**ptr;
 
-	word = countstr(s, c);
-	ptr = malloc(sizeof(char *) * (word + 1));
+	ptr = malloc(sizeof(char *) * (countstr(s, c) + 1));
 	if (!s || !ptr)
 		return (0);
 	i = 0;
 	j = 0;
-	while (i < word)
+	while (i < countstr(s, c))
 	{
 		while (s[j] == c)
 			j++;
-		wlen = wordlen(s, c, j);
-		ptr[i] = ft_substr(s, j, wlen);
-		j += wlen;
+		ptr[i] = ft_substr(s, j, wordlen(s, c, j));
+		if (!ptr[i])
+		{
+			free_err(ptr, i);
+			return (0);
+		}
+		j += wordlen(s, c, j);
 		i++;
 	}
-	ptr[word] = NULL;
+	ptr[i] = NULL;
 	return (ptr);
 }

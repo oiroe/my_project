@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 17:16:33 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/27 17:21:51 by pboonpro         ###   ########.fr       */
+/*   Created: 2022/09/29 21:55:52 by pboonpro          #+#    #+#             */
+/*   Updated: 2022/09/29 21:59:52 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*newl;
+	t_list	*new;
 
-	newl = (t_list *)malloc(sizeof(t_list));
-	if (!newl)
-		return (newl = NULL);
-	newl->next = NULL;
-	newl->content = content;
-	return (newl);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (0);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

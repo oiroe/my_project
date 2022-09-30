@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 17:38:59 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/27 17:42:10 by pboonpro         ###   ########.fr       */
+/*   Created: 2022/09/29 22:06:27 by pboonpro          #+#    #+#             */
+/*   Updated: 2022/09/29 22:54:18 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
-		return (0);
-	while (lst->next != 0)
-		lst = lst->next;
+		return (lst);
+	else
+	{
+		while (lst->next != 0)
+			lst = lst->next;
+	}
 	return (lst);
 }

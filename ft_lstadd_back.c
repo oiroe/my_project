@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 17:42:34 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/27 18:36:24 by pboonpro         ###   ########.fr       */
+/*   Created: 2022/09/29 22:10:25 by pboonpro          #+#    #+#             */
+/*   Updated: 2022/09/29 22:55:19 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*p;
+	t_list	*ptr;
 
-	if (*lst)
-	{
-		p = ft_lstlast(*lst);
-		p->next = new;
-	}
-	else
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst == NULL)
 		*lst = new;
+	else
+	{
+		ptr = ft_lstlast(*lst);
+		ptr->next = new;
+		new->next = NULL;
+	}
 }
