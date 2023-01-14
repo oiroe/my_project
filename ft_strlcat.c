@@ -6,7 +6,7 @@
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:03:58 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/09/30 00:32:20 by pboonpro         ###   ########.fr       */
+/*   Updated: 2022/10/01 23:04:47 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	les;
 	size_t	j;
 
-	led = ft_strlen(dst);
 	les = ft_strlen(src);
+	if (!dst && size == 0)
+		return (ft_strlen(src));
+	led = ft_strlen(dst);
 	if (size == 0)
 		return (les);
 	if (size < led)
